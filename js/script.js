@@ -191,7 +191,32 @@ function AlwaysEven() {
         resultEl.classList.remove('d-none');
         resultEl.innerText = message; 
     };
-}
+
+};
+
+//per verificare che una parola sia palindromo
+
+//posso ciclare la lenght della stringa
+
+let stringa = 'casa';
+
+console.log(stringa.lenght);
+
+let nuovastringa = '';
+
+for(let i = 0; i< stringa.length; i++) {
+    console.log(stringa[i]);
+    let nuovastringa += stringa[i];
+};
+
+console.log(nuovastringa);
+
+//ora potrei usare il comando reverse che serve per ribaltare la stringa al contrario 
+//e cercare (js string) un comando per comprimere tutti gli elementi di nuovo in una stringa 
+//poi verificare che la nuova stirnga sia identica a quella prima, se è un palindromo dovrebbe darti un messaggio di conferma 
+
+
+
 
 
 
