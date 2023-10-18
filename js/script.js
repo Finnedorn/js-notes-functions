@@ -1,4 +1,7 @@
-//funzioni
+                        //funzioni
+
+
+
 
 //nomedella funzione(argomento) {}
 //l'argomento sono gli elementi placeholder della funzione che rappresenteranno due o più ipotetici valori coinvolti dentro la funzione 
@@ -77,13 +80,16 @@ function miafunzione() {
 
 //e quindi: 
 
-btn = addEventListener('click', miafunzione);
+btn = addEventListener('click', miafunzione());
 
 
 
 
 
-//una funzione si può documentare in questo modo:
+        //una funzione si può documentare in questo modo:
+
+
+
 
 /**
  * determina se il numero è pari
@@ -214,6 +220,61 @@ console.log(nuovastringa);
 //ora potrei usare il comando reverse che serve per ribaltare la stringa al contrario 
 //e cercare (js string) un comando per comprimere tutti gli elementi di nuovo in una stringa 
 //poi verificare che la nuova stirnga sia identica a quella prima, se è un palindromo dovrebbe darti un messaggio di conferma 
+
+
+
+
+
+                //Arrow function 
+
+
+
+
+
+//sono un nuovo tipo di function
+//es:
+
+() => 
+
+//come le funzioni normali possono avere un nome o essere anonime
+//se volessi chiamarle toccherebbe associarle ad una let/const
+//es: 
+
+const myfunction = () => 1 + 1;
+
+//qualità:
+
+//si distinguono per accorciare la sintassi
+//non hanno un this cioè l'elemento che ha ricevuto quell'evento es: il bottone dell'addEventListener
+//non hanno un return, cioè è implicito perchè non usa le {}
+//nota!!: se metto le {} il return non è più implicito!!!
+
+const btn = document.querySelector('button');
+
+btn.addEventListener('click', function () {
+    console.log(this);
+})
+
+//in questo caso la console designerà come this il bottone in quanto scatenante dell'evento
+
+
+const btn = document.querySelector('button');
+
+btn.addEventListener('click', () => console.log(this));
+
+//in questo caso la console mi designerà come this un elemento dello scope globale 
+
+
+//potrei scriverla anche così:
+
+btn.addEventListener('click',() => {
+    //contenuto della funzione
+});
+
+
+
+
+
 
 
 
