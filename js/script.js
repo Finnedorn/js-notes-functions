@@ -273,12 +273,103 @@ btn.addEventListener('click',() => {
 
 
 
+                //Timing functions
 
 
 
+//sono le funzioni che tengono conto del passare del tempo
+//sono il primo approccio alla programmazione asincrona
+//Nota!! il tempo da specificare va in millesimi quindi es 3 sec sono 3000, 10 sec sono 10 000, ma potrei cmq fare tot sec*1000 cioè inserire il calcolo all'interno della funzione 
+
+//es: 
+
+//settimeout procca la funzione dopo tot tempo 
+
+setTimeout( /*funzione da eseguire*/, /*tempo da aspettare*/);
+
+setTimeout(myfunction, 3000);
+
+function myfunction () {
+    alert ('hello');
+};
+
+//setinterval procca la funzione ogni tot tempo
+
+setInterval( /*funzione da eseguire*/, /*tempo ogni quanto deve ripetere la funzione*/);
+
+setInterval(myfunction, 3000);
+
+function myfunction () {
+    alert ('hello');
+};
+
+//come la fermo? 
+//la associo ad una const/let
+
+const clock = setInterval(myfunction, 3000);
+
+//e poi con il comando:
+
+clearInterval(clock);
 
 
+//es:
+
+function buttaLaPasta() {
+    console.log('acqua bolle');
+}
+
+//eseguo dopo 10min
+setTimeout(buttaLaPasta, (10 * 60)*1000);
 
 
+//voglio creare un timeout di capodanno
+
+//creo una variabile da valore 10
+let seconds = 10;
+//creo una variabile che ogni 1 sec scali di tot valori
+const CountDown = setInterval(counter, 1000);
+
+//programmo la funzione 
+function counter() {
+    //se let è sopra zero scala un valore 
+    if (seconds > 0) {
+        console.log(seconds);
+        seconds -= 1;
+        //quando arrivi a 0 non scendere più e stampa il messaggio!
+    } else {
+        clearInterval(CountDown);
+        console.log('Buon Anno!!!!');
+    }
+};
+
+//voglio creare un orologio
+
+//presupponendo che ho un div in cui riportare dei valori
+const app = document.getElementById('app');
+
+const date = new Date();
+let hours = date.getHours();
+let mins = date.getMinutes();
+let secs = date.getSeconds();
+let time = hours + ':' + min + ':' + secs;
+app.innerHTML = time;
+//ok ora l'ho stampato ma non si aggiorna, l'ho solo stampato una volta sola!!!
+//quindi:
+
+//creo un timer che ogni sec mi ripete la funzione che mi stampa il tempo corrente sull'html
+const clock = setInterval(timer, 1*1000);
+
+function timer () {
+    const date = new Date();
+    let hours = date.getHours();
+    let mins = date.getMinutes();
+    let secs = date.getSeconds();
+    let time = hours + ':' + min + ':' + secs;
+}
+
+const btn = document.querySelector('button');
+
+btn.addEventListener('click', function() {clearInterval(clock)});
 
 
